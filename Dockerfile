@@ -30,10 +30,14 @@ RUN mv /tmp/magento /var/www
 
 RUN cd /var/www/ && chmod -R o+w media var && chmod o+w app/etc && rm -f magento-*tar.gz
 
+ADD mage-cache.xml /var/www/app/etc/mage-cache.xml
+
 ADD start.sh /start.sh
 
 RUN chmod 0755 /start.sh 
 
-CMD /start.sh
+RUN echo "/start.sh" >> /etc/rc.local
+
+CMD /sbin/init
 
 

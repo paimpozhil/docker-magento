@@ -8,7 +8,6 @@ sed -i "s/<password\/>/<password>password<\/password>/g" /var/www/app/etc/config
 echo "Creating the magento database..."
 echo "create database magento" | mysql -u "$DB_ENV_USER" --password="$DB_ENV_PASS" -h "$DB_PORT_3306_TCP_ADDR" -P "$DB_PORT_3306_TCP_PORT" 
 
-service nginx start
-service php-fpm start
+echo "Adding Magento Caching"
 
-
+ sed -i -e  '/<\/config>/{ r /var/www/app/etc/mage-cache.xml' -e 'd}' /var/www/app/etc/local.xml.template
