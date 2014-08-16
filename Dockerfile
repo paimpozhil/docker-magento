@@ -36,8 +36,8 @@ ADD start.sh /start.sh
 
 RUN chmod 0755 /start.sh 
 
-RUN echo "/start.sh" >> /etc/rc.local
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-CMD /sbin/init
+CMD /start.sh
 
 

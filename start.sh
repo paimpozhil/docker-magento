@@ -1,5 +1,11 @@
 #! /bin/bash
 
+if [[ -e /firstrun ]]; then
+
+echo "not first run so skipping initialization"
+
+else 
+
 echo "setting the default installer info for magento"
 sed -i "s/<host>localhost/<host>db/g" /var/www/app/etc/config.xml
 sed -i "s/<username\/>/<username>user<\/username>/" /var/www/app/etc/config.xml
@@ -16,4 +22,12 @@ done
 
 echo "Adding Magento Caching"
 
- sed -i -e  '/<\/config>/{ r /var/www/app/etc/mage-cache.xml' -e 'd}' /var/www/app/etc/local.xml.template
+sed -i -e  '/<\/config>/{ r /var/www/app/etc/mage-cache.xml' -e 'd}' /var/www/app/etc/local.xml.template
+
+touch /firstrun
+
+fi
+
+service php-fpm start
+
+nginx 
