@@ -52,6 +52,11 @@ docker build -t docker-magento .
 docker run -p 80:80 -link mariadb:db --link memcached:cache -td docker-magento 
 ```
 
+### Need support?
+
+#### http://dockerteam.com
+
+
 Credits:
 
 Please look at these repositories  for adding more parameters/configuring them 
@@ -59,8 +64,5 @@ Please look at these repositories  for adding more parameters/configuring them
 #### https://github.com/SylvainLasnier/memcached/blob/master/README.md
 
 #### https://github.com/Painted-Fox/docker-mariadb
-
-
-
 
 
