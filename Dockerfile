@@ -32,6 +32,8 @@ RUN cd /var/www/ && chmod -R o+w media var && chmod o+w app/etc && rm -f magento
 
 ADD mage-cache.xml /var/www/app/etc/mage-cache.xml
 
+ADD seturl.php /var/www/seturl.php
+
 ADD start.sh /start.sh
 
 RUN chmod 0755 /start.sh 
