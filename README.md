@@ -20,7 +20,7 @@ $ docker run --name memcached -d -p 11211 sylvainlasnier/memcached
 Then finally run our docker-magento container
 
 ```
-docker run -p 80:80 -link mariadb:db --link memcached:cache -td paimpozhil/magento-docker
+docker run -p 80:80 --link mariadb:db --link memcached:cache -td paimpozhil/magento-docker
 ```
 
 Now visit your public IP in your browser and you will see the installer ready to go.. enter the database password when installer prompts ('password') is the default. 
